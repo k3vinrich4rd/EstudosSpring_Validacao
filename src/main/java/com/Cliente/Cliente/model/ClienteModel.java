@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 
 @Getter
 @Setter
@@ -47,5 +48,6 @@ public class ClienteModel {
     @Column(length = 100, nullable = false)
     @NotBlank(message = "Erro: campo não informado")
     @Min(value = 1900, message = "Erro: a data de nascimento tem que ser superior a 1900")
+    @Past(message = "cadastrado") // A data de nascimento não pode ser superior à data presente
     private String anoDeNascimento;
 }
